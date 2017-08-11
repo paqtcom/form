@@ -1,23 +1,27 @@
 /**
  * Way 2 Filter.
  *
+ * @param {object} keyOptions
+ *
  * @return {array}
  */
-window.W2Filter = function() {
+window.W2Filter = function(keyOptions) {
     'use strict';
 
-    var version = '0.0.1';
+    var version = '0.0.2';
 
-    var keys = {
+    var defaultKeys = {
         's':      'button.btn-primary[type=submit]',
         'a':      'a.btn-default',
         'Delete': 'button.btn-danger[type=submit]'
     };
+    var keys = {};
 
     /**
      * Helper functions for forms.
      */
     function init() {
+        keys = $.extend({}, defaultKeys, keyOptions || {});
         $(document).keydown(keyPress);
 
         if (!Modernizr.formattribute) {
