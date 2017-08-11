@@ -1,6 +1,6 @@
 {
     "name": "way2web-form",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Making forms fun again.",
     "files": [
         "js/form.js"
@@ -41,6 +41,7 @@
        "rev-del": "1.0.5"
    },
    "dependencies": {
-        "jquery": ">=1.7"
+        "jquery": ">=1.7",
+        "modernizr": "3.3.1"
     }
 }
