@@ -1,14 +1,14 @@
 /**
- * Way 2 Filter.
+ * Way2Web Form helpers.
  *
  * @param {object} keyOptions
  *
  * @return {array}
  */
-window.W2Filter = function(keyOptions) {
+window.W2Form = function(keyOptions) {
     'use strict';
 
-    var version = '0.0.2';
+    var version = '0.0.3';
 
     var defaultKeys = {
         's':      'button.btn-primary[type=submit]',

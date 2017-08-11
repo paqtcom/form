@@ -1,4 +1,4 @@
-# Way 2 Filter
+# Way2Web Form helpers.
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
 
