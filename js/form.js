@@ -8,7 +8,7 @@
 window.W2Form = function(keyOptions) {
     'use strict';
 
-    var version = '0.0.5';
+    var version = '0.0.6';
 
     var defaultKeys = {
         's':      'button.btn-primary[type=submit]',
