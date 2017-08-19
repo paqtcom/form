@@ -8,7 +8,7 @@
 window.W2Form = function(keyOptions) {
     'use strict';
 
-    var version = '0.0.7';
+    var version = '0.0.8';
 
     var defaultKeys = {
         's':      'button.btn-primary[type=submit]',
@@ -19,6 +19,8 @@ window.W2Form = function(keyOptions) {
 
     /**
      * Helper functions for forms.
+     *
+     * @return {object}
      */
     function init() {
         keys = $.extend({}, defaultKeys, keyOptions || {});
@@ -28,6 +30,8 @@ window.W2Form = function(keyOptions) {
             $('button[type=submit][form]').on('click', submit);
             $('form input.form-control').on('keydown', submitOnEnter);
         }
+
+        return this;
     }
 
     /**
