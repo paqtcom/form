@@ -18,6 +18,28 @@ The default key combinations are Ctrl with the keys in the object:
 }
 ```
 
+
+## Test the package.
+
+To test the package, clone the package to your system.
+Than run this command.
+
+```
+npm run build
+```
+
+This will copy the test files to the dist, and also build the package files include the dependencies.
+
+When this script is complete without errors, you can open `dist/index.html` in your browser.
+Open the dev tools, tab console, and you see all the results of the tests.
+
+If you only want to check the eslint rules, just run.
+
+```
+npm run lint
+```
+
+
 [downloads-image]: https://img.shields.io/npm/dm/way2web-form.svg
 [npm-url]: https://www.npmjs.com/package/way2web-form
 [npm-image]: https://img.shields.io/npm/v/way2web-form.svg
