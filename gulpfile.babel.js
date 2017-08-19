@@ -21,10 +21,12 @@ const paths = {
 
 export const folders = {
     scripts: `${paths.root}js/`,
+    test: `${paths.root}test/`,
     npm: 'node_modules/'
 };
 
 export const dist = {
+    root: `${paths.dist}`,
     scripts: `${paths.dist}js/`
 };
 
@@ -43,6 +45,7 @@ export { packageOptions, gulpOptions };
  */
 import { lintScripts } from './gulp/lint';
 import { scripts } from './gulp/scripts';
+import { copy } from './gulp/copy';
 import { clean } from './gulp/clean';
 import { bust } from './gulp/rev';
 import { modernizr } from './gulp/modernizr';
@@ -67,6 +70,13 @@ export const taskConfig = {
             dist.scripts + 'app.js'
         )
     ],
+    copy: [
+        new Task(
+            ['*'],
+            folders.test,
+            dist.root
+        )
+    ],
 };
 
 /*
@@ -83,7 +93,7 @@ function watch() {
 const lint = gulp.parallel(lintScripts);
 const build = gulp.series(
     clean,
-    gulp.parallel(lint, scripts),
+    gulp.parallel(lint, scripts, modernizr, copy),
     bust
 );
 
@@ -96,6 +106,7 @@ export {
     scripts,
     lint,
     lintScripts,
+    copy,
     modernizr
 };
 
