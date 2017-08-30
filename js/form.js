@@ -52,8 +52,7 @@ window.W2Form = function(keyOptions) {
      * @param {object} event
      */
     function submit(event) {
-        var button = $(this);
-        var formId = button.attr('form');
+        var formId = $(this).attr('form');
         var form;
 
         if(event) {
