@@ -8,7 +8,7 @@
 window.W2Form = function(keyOptions) {
     'use strict';
 
-    var version = '0.0.8';
+    var version = '0.0.9';
 
     var defaultKeys = {
         's':      'button.btn-primary[type=submit]',
@@ -52,12 +52,21 @@ window.W2Form = function(keyOptions) {
      * @param {object} event
      */
     function submit(event) {
-        var form = $('#' + $(this).attr('form'));
+        var formId = $(this).attr('form');
+        var form;
 
-        event.preventDefault();
+        if(event) {
+            event.preventDefault();
+        }
 
-        if (form) {
-            submit();
+        if(!formId) {
+            return;
+        }
+
+        form = $('#' + formId);
+
+        if (form.length > 0) {
+            form.submit();
         }
     }
 
