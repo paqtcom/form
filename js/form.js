@@ -8,7 +8,7 @@
 window.W2Form = function(keyOptions) {
     'use strict';
 
-    var version = '0.1.0';
+    var version = '0.1.1';
 
     var defaultKeys = {
         's':      'button.btn-primary[type=submit]',
@@ -52,7 +52,10 @@ window.W2Form = function(keyOptions) {
      * @param {object} event
      */
     function submit(event) {
-        var formId = $(this).attr('form');
+        var button = $(this);
+        var buttonName = button.attr('name');
+        var buttonValue = button.val();
+        var formId = button.attr('form');
         var form;
 
         if(event) {
@@ -64,6 +67,9 @@ window.W2Form = function(keyOptions) {
         }
 
         form = $('#' + formId);
+        if(buttonName && buttonValue) {
+            form.append('<input type="hidden" name="' + button.attr('name') + '" value="' + button.val() + '">');
+        }
 
         if (form.length > 0) {
             form.submit();
