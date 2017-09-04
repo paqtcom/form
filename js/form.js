@@ -68,7 +68,7 @@ window.W2Form = function(keyOptions) {
 
         form = $('#' + formId);
         if(buttonName && buttonValue) {
-            form.append('<input type="hidden" name="' + button.attr('name') + '" value="' + button.val() + '">');
+            form.append('<input type="hidden" name="' + buttonName + '" value="' + buttonValue + '">');
         }
 
         if (form.length > 0) {
