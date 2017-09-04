@@ -8,7 +8,7 @@
 window.W2Form = function(keyOptions) {
     'use strict';
 
-    var version = '0.1.1';
+    var version = '0.1.2';
 
     var defaultKeys = {
         's':      'button.btn-primary[type=submit]',
@@ -16,6 +16,8 @@ window.W2Form = function(keyOptions) {
         'Delete': 'button.btn-danger[type=submit]'
     };
     var keys = {};
+
+    var modern = Modernizr.formattribute;
 
     /**
      * Helper functions for forms.
@@ -26,12 +28,34 @@ window.W2Form = function(keyOptions) {
         keys = $.extend({}, defaultKeys, keyOptions || {});
         $(document).keydown(keyPress);
 
-        if (!Modernizr.formattribute) {
+        if (!modern) {
             $('button[type=submit][form]').on('click', submit);
             $('form input.form-control').on('keydown', submitOnEnter);
         }
 
         return this;
+    }
+
+    /**
+     * Set the modern variable, to simulate modern check.
+     *
+     * @param {boolean} customValue
+     *
+     * @return {object}
+     */
+    function setModern(customValue) {
+        modern = customValue;
+
+        return this;
+    }
+
+    /**
+     * Get the modern variable.
+     *
+     * @return {boolean}
+     */
+    function getModern() {
+        return modern;
     }
 
     /**
@@ -103,6 +127,8 @@ window.W2Form = function(keyOptions) {
 
     return {
         init:          init,
+        setModern:     setModern,
+        getModern:     getModern,
         submit:        submit,
         submitOnEnter: submitOnEnter,
         keyPress:      keyPress,
