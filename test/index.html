@@ -5,13 +5,20 @@
     method="GET"
     action="submit.html"
     accept-charset="UTF-8"
+    name="test"
+    id="test"
 >
     <input name="test1">
     <textarea name="test2"></textarea>
-    <button class="button btn-primary" type="submit">
-       Submit
-    </button>
 </form>
+
+<button class="button btn-primary" type="submit" name="action" form="test" value="ok">
+   Submit with value
+</button>
+
+<button class="button btn-primary" type="submit" form="test">
+   Submit without value
+</button>
 
 <form
     method="POST"
