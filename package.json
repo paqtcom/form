@@ -1,6 +1,6 @@
 {
     "name": "way2web-form",
-    "version": "0.0.9",
+    "version": "0.1.0",
     "description": "Making forms fun again.",
     "files": [
         "js/form.js"
@@ -11,7 +11,9 @@
         "url": "https://bitbucket.org/way2dev/form"
     },
     "keywords": [
-        "javascript"
+        "javascript",
+        "form",
+        "jQuery"
     ],
     "author": {
         "name": "Way2Web",

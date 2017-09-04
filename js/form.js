@@ -8,7 +8,7 @@
 window.W2Form = function(keyOptions) {
     'use strict';
 
-    var version = '0.0.9';
+    var version = '0.1.0';
 
     var defaultKeys = {
         's':      'button.btn-primary[type=submit]',
@@ -78,7 +78,7 @@ window.W2Form = function(keyOptions) {
     function keyPress(event) {
         var key = keys[event.key];
 
-        if (event.ctrlKey && key) {
+        if (event.ctrlKey && key && event.target.tagName != 'INPUT' && event.target.tagName != 'TEXTAREA') {
             event.preventDefault();
             click(key);
         }
