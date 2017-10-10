@@ -85,16 +85,16 @@ class W2Form {
         let formId = button.attr('form');
         let form;
 
-        if(event) {
+        if (event) {
             event.preventDefault();
         }
 
-        if(!formId) {
+        if (!formId) {
             return;
         }
 
         form = $('#' + formId);
-        if(buttonName && buttonValue) {
+        if (buttonName && buttonValue) {
             form.append('<input type="hidden" name="' + buttonName + '" value="' + buttonValue + '">');
         }
 
