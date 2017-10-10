@@ -1,36 +1,39 @@
 /**
  * Way2Web Form helpers.
- *
- * @param {object} keyOptions
- *
- * @return {array}
  */
-window.W2Form = function(keyOptions) {
-    'use strict';
+class W2Form {
+    /**
+     * Constructor.
+     *
+     * @param {object} keyOptions
+     */
+    constructor(keyOptions) {
+        this.version = '0.2.0';
 
-    var version = '0.1.2';
+        this.defaultKeys = {
+            's':      'button.btn-primary[type=submit]',
+            'a':      'a.btn-default',
+            'Delete': 'button.btn-danger[type=submit]'
+        };
+        this.keys = {};
+        this.keyOptions = keyOptions;
 
-    var defaultKeys = {
-        's':      'button.btn-primary[type=submit]',
-        'a':      'a.btn-default',
-        'Delete': 'button.btn-danger[type=submit]'
-    };
-    var keys = {};
+        this.modern = Modernizr.formattribute;
+    }
 
-    var modern = Modernizr.formattribute;
 
     /**
      * Helper functions for forms.
      *
      * @return {object}
      */
-    function init() {
-        keys = $.extend({}, defaultKeys, keyOptions || {});
-        $(document).keydown(keyPress);
+    init() {
+        this.keys = $.extend({}, this.defaultKeys, this.keyOptions || {});
+        $(document).on('keydown', this.keyPress.bind(this));
 
-        if (!modern) {
-            $('button[type=submit][form]').on('click', submit);
-            $('form input.form-control').on('keydown', submitOnEnter);
+        if (!this.modern) {
+            $('button[type=submit][form]').on('click', this.submit);
+            $('form input.form-control').on('keydown', this.submitOnEnter);
         }
 
         return this;
@@ -43,8 +46,8 @@ window.W2Form = function(keyOptions) {
      *
      * @return {object}
      */
-    function setModern(customValue) {
-        modern = customValue;
+    setModern(customValue) {
+        this.modern = customValue;
 
         return this;
     }
@@ -54,8 +57,8 @@ window.W2Form = function(keyOptions) {
      *
      * @return {boolean}
      */
-    function getModern() {
-        return modern;
+    getModern() {
+        return this.modern;
     }
 
     /**
@@ -63,7 +66,7 @@ window.W2Form = function(keyOptions) {
      *
      * @param {object} event
      */
-    function submitOnEnter(event) {
+    submitOnEnter(event) {
         if (event.key == 'Enter') {
             $(this).closest('form').submit();
         }
@@ -75,12 +78,12 @@ window.W2Form = function(keyOptions) {
      *
      * @param {object} event
      */
-    function submit(event) {
-        var button = $(this);
-        var buttonName = button.attr('name');
-        var buttonValue = button.val();
-        var formId = button.attr('form');
-        var form;
+    submit(event) {
+        let button = $(this);
+        let buttonName = button.attr('name');
+        let buttonValue = button.val();
+        let formId = button.attr('form');
+        let form;
 
         if(event) {
             event.preventDefault();
@@ -105,12 +108,12 @@ window.W2Form = function(keyOptions) {
      *
      * @param {object} event
      */
-    function keyPress(event) {
-        var key = keys[event.key];
+    keyPress(event) {
+        let key = this.keys[event.key];
 
         if (event.ctrlKey && key && event.target.tagName != 'INPUT' && event.target.tagName != 'TEXTAREA') {
             event.preventDefault();
-            click(key);
+            this.click(key);
         }
     }
 
@@ -119,20 +122,9 @@ window.W2Form = function(keyOptions) {
      *
      * @param {string} key
      */
-    function click(key) {
+    click(key) {
         if ($(key).length > 0) {
             $(key)[0].click();
         }
     }
-
-    return {
-        init:          init,
-        setModern:     setModern,
-        getModern:     getModern,
-        submit:        submit,
-        submitOnEnter: submitOnEnter,
-        keyPress:      keyPress,
-        click:         click,
-        version:       version
-    };
-};
+}
