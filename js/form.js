@@ -128,3 +128,7 @@ class W2Form {
         }
     }
 }
+
+if (typeof module === 'object' && typeof module.exports === 'object') {
+    module.exports = W2Form;
+}
