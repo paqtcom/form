@@ -1,10 +1,22 @@
 import parsePath from 'parse-filepath';
 
+/**
+ * Task base.
+ */
 class Task {
-    constructor(glob, base, dist) {
+    /**
+     * Task constructor.
+     *
+     * @param {array} glob
+     * @param {string} base
+     * @param {string} dist
+     * @param {object} options
+     */
+    constructor(glob, base, dist, options) {
         this.glob = glob;
         this.base = base;
         this.dist = dist;
+        this.options = options;
 
         this.filename = parsePath(dist).basename;
         this.saveto = parsePath(dist).dirname;

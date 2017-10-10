@@ -60,14 +60,22 @@ export const taskConfig = {
                 'jquery/dist/jquery.js',
             ],
             folders.npm,
-            dist.scripts + 'vendor.js'
+            dist.scripts + 'vendor.js',
+            {
+                babel: false,
+                uglify: true
+            }
         ),
         new Task(
             [
                 'form.js'
             ],
             folders.scripts,
-            dist.scripts + 'app.js'
+            dist.scripts + 'app.js',
+            {
+                babel: true,
+                uglify: false
+            }
         )
     ],
     copy: [

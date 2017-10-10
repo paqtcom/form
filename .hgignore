@@ -9,4 +9,6 @@ _ide_helper_models.php
 
 #assets
 node_modules/*
-^dist/*$
+^dist/.*\.html$
+^dist/form.js
+^dist/js/(?!app.js)
