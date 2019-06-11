@@ -2,7 +2,9 @@
  * Bootstrap gulp
  */
 import gulp from 'gulp';
-import { folders, dist, packageOptions } from '../gulpfile.babel.js';
+import {
+    folders, dist, packageOptions
+} from '../gulpfile.babel.js';
 import * as utilities from './bootstrap/utilities';
 import * as manifest from './bootstrap/manifest';
 
@@ -24,8 +26,10 @@ function modernizr() {
     return gulp.src(folders.scripts + 'form.js')
         .on('end', utilities.logBegin('Modernizr'))
         .pipe(gulpModernizr(packageOptions.modernizr))
-        .pipe(uglify(packageOptions.uglify))
+        .pipe(uglify())
         .pipe(gulp.dest(dist.scripts));
 }
 
-export { modernizr };
+export {
+    modernizr
+};

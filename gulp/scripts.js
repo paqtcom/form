@@ -3,7 +3,9 @@
  */
 import gulp from 'gulp';
 import babel from 'gulp-babel';
-import { packageOptions, gulpOptions, taskConfig } from '../gulpfile.babel.js';
+import {
+    packageOptions, gulpOptions, taskConfig
+} from '../gulpfile.babel.js';
 import * as utilities from './bootstrap/utilities';
 import * as manifest from './bootstrap/manifest';
 
@@ -27,20 +29,14 @@ function scripts() {
             .on('end', utilities.logBegin('Scripts'))
             .pipe(utilities.initSourceMaps());
 
-        if(task.options.babel) {
-            gulpTask = gulpTask.pipe(babel())
+        if (task.options.babel) {
+            gulpTask = gulpTask.pipe(babel());
         }
 
-        gulpTask = gulpTask.pipe(concat(task.filename))
+        gulpTask = gulpTask.pipe(concat(task.filename));
 
-        if(task.options.uglify) {
-            gulpTask = gulpTask.pipe(
-                uglify(packageOptions.uglify).on('error', function(error) {
-                    var stream = this;
-
-                    utilities.onError(stream, error, error.cause.message, error.cause.filename);
-                })
-            )
+        if (task.options.uglify) {
+            gulpTask = gulpTask.pipe(uglify());
         }
 
         gulpTask = gulpTask.pipe(utilities.writeSourceMaps())
@@ -55,4 +51,6 @@ function scripts() {
     return merge(tasks);
 }
 
-export { scripts };
+export {
+    scripts
+};

@@ -8,7 +8,7 @@ class W2Form {
      * @param {object} keyOptions
      */
     constructor(keyOptions) {
-        this.version = '0.2.0';
+        this.version = '0.3.0';
 
         this.defaultKeys = {
             's':      'button.btn-primary[type=submit]',

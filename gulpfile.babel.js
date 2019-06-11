@@ -8,7 +8,9 @@
 import gulp from 'gulp';
 import gutil from 'gulp-util';
 import Task from './gulp/bootstrap/task';
-import { packageOptions, gulpOptions } from './gulp/bootstrap/config';
+import {
+    packageOptions, gulpOptions
+} from './gulp/bootstrap/config';
 
 /*
  * Configure
@@ -16,17 +18,17 @@ import { packageOptions, gulpOptions } from './gulp/bootstrap/config';
 
 const paths = {
     root: './',
-    dist: `./dist/`
+    dist: './dist/'
 };
 
 export const folders = {
     scripts: `${paths.root}js/`,
-    test: `${paths.root}test/`,
-    npm: 'node_modules/'
+    test:    `${paths.root}test/`,
+    npm:     'node_modules/'
 };
 
 export const dist = {
-    root: `${paths.dist}`,
+    root:    `${paths.dist}`,
     scripts: `${paths.dist}js/`
 };
 
@@ -38,17 +40,31 @@ export const dist = {
  *       to: '../fonts/winternote/winternote'
  * });
  */
-export { packageOptions, gulpOptions };
+export {
+    packageOptions, gulpOptions
+};
 
 /*
  * Import all our tasks
  */
-import { lintScripts } from './gulp/lint';
-import { scripts } from './gulp/scripts';
-import { copy } from './gulp/copy';
-import { clean } from './gulp/clean';
-import { bust } from './gulp/rev';
-import { modernizr } from './gulp/modernizr';
+import {
+    lintScripts
+} from './gulp/lint';
+import {
+    scripts
+} from './gulp/scripts';
+import {
+    copy
+} from './gulp/copy';
+import {
+    clean
+} from './gulp/clean';
+import {
+    bust
+} from './gulp/rev';
+import {
+    modernizr
+} from './gulp/modernizr';
 
 /*
  * Define the tasks
@@ -57,12 +73,12 @@ export const taskConfig = {
     scripts: [
         new Task(
             [
-                'jquery/dist/jquery.js',
+                'jquery/dist/jquery.js'
             ],
             folders.npm,
             dist.scripts + 'vendor.js',
             {
-                babel: false,
+                babel:  false,
                 uglify: true
             }
         ),
@@ -73,7 +89,7 @@ export const taskConfig = {
             folders.scripts,
             dist.scripts + 'app.js',
             {
-                babel: true,
+                babel:  true,
                 uglify: false
             }
         )
@@ -84,7 +100,7 @@ export const taskConfig = {
             folders.test,
             dist.root
         )
-    ],
+    ]
 };
 
 /*
