@@ -18,7 +18,7 @@ var W2Form = function () {
     function W2Form(keyOptions) {
         _classCallCheck(this, W2Form);
 
-        this.version = '0.2.0';
+        this.version = '0.3.0';
 
         this.defaultKeys = {
             's': 'button.btn-primary[type=submit]',
