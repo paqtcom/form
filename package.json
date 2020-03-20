@@ -45,14 +45,16 @@
         "gulp-rev": "^9.0.0",
         "gulp-sass": "^4.0.2",
         "gulp-sourcemaps": "^2.6.5",
-        "gulp-stylelint": "^3.9.0",
+        "gulp-stylelint": "^13.0.0",
         "gulp-uglify": "^3.0.2",
+        "gulp-util": "^3.0.8",
         "merge-stream": "^2.0.0",
         "node-notifier": "^5.4.0",
         "parse-filepath": "^1.0.2",
         "postcss-reporter": "^6.0.1",
         "postcss-urlrewrite": "^0.2.2",
-        "rev-del": "^2.0.0"
+        "rev-del": "^2.0.0",
+        "stylelint": "^13.2.1"
     },
     "dependencies": {
         "jquery": "^3.4.1",
