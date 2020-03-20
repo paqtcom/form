@@ -8,13 +8,13 @@ pipelines:
             script:
                 - ./bitbucket-pipelines/assets.sh
     branches:
-        default:
+        develop:
             - step:
                 caches:
                     - yarn
                 script:
                     - ./bitbucket-pipelines/assets.sh
-        release:
+        master:
             - step:
                 caches:
                     - yarn
