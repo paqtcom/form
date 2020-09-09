@@ -1,7 +1,6 @@
 (function(Way2web) {
     'use strict';
 
-
     Way2web.form = null;
 
     /**
