@@ -5,7 +5,13 @@
     "files": [
         "src/form.js",
         "dist/form.js",
-        "dist/form.module.js"
+        "dist/form.js.map",
+        "dist/form.modern.js",
+        "dist/form.modern.js.map",
+        "dist/form.module.js",
+        "dist/form.module.js.map",
+        "dist/form.umd.js",
+        "dist/form.umd.js.map"
     ],
     "source": "src/form.js",
     "main": "dist/form.js",
