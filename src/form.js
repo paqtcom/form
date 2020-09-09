@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import Modernizr from 'modernizr';
+
 /**
  * Way2Web Form helpers.
  */
@@ -8,7 +11,7 @@ class W2Form {
      * @param {object} keyOptions
      */
     constructor(keyOptions) {
-        this.version = '0.3.0';
+        this.version = '1.0.0';
 
         this.defaultKeys = {
             's':      'button.btn-primary[type=submit]',
