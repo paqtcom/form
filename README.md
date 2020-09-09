@@ -6,7 +6,7 @@ Fix the form atrtibute for old browsers, and add the key combinations to click o
 
 Add this to your javascript file:
 ```
-new W2Form().init();
+new W2Form().init(document);
 ```
 
 The default key combinations are Ctrl with the keys in the object:
