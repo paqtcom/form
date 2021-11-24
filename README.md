@@ -2,6 +2,9 @@
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-stats]
 
+> **⚠ WARNING: No maintenance intended**  
+> This package is not actively maintained.
+
 Fix the form atrtibute for old browsers, and add the key combinations to click on a button, like Ctrl+S to submit the form.
 
 Add this to your javascript file:
